@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400&display=swap" rel="stylesheet">
 <link rel="shoutcut icon" href="./images/fv,slick/fv.png">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <script src="./script/jquery-1.11.3.js"></script>
@@ -27,6 +28,20 @@
             animationtype: 'fade',
             timeout: 2000
         })
+        // 레이어팝업
+        $(".layerPopup").on("click", function () {
+            $(".popup, .bg").fadeIn(); //나타남
+        });
+        $(".close").on("click", function () {
+            $(".popup, .bg").fadeOut(); //사라짐
+        });
+        // 배경 클릭시 팝업 사라짐
+        $(".bg").on("click", function () {
+            $(".bg, .popup").fadeOut();
+        });
+        $(".popup, .bg").on("click", function () {
+            $(".bg, .popup").fadeOut();
+        });
     });
 </script>
 <script>
@@ -40,7 +55,7 @@
             slidesToShow: 5, // 보이는 슬라이드 갯수 
             dots: false, // 인디케이터 비활성화 (보이게하려면true )                
             focusOnSelect: true, //  슬라이드 선택시 포커스
-            arrows: true, // 이전, 다음 화살표
+            arrows: false, // 이전, 다음 화살표
             // speed: 200,  // 2초 (주석)
             conterPadding: '120px', // 중앙 슬라이드와의간격               
             centerMode: true // 중앙 슬라이드 모드 활성화 
@@ -52,29 +67,35 @@
     <!-- #WRAP>header+main+footer -->
     <div id="wrap">
         <header>
-            <!-- h1.logo>a>img -->
-            <h1 class="logo">
-                <a href="#"><img src="./images/logo-gnb.svg" alt="logo"></a></h1>
-            <!-- nav.menu -->
-            <nav class="menu">
-                <!-- ul>li*5>a -->
-                <ul>
-                    <li><a href="#">Mobile</a></li>
-                    <li><a href="#">TV</a></li>
-                    <li><a href="#">PC</a></li>
-                    <li><a href="#">Tablet</a></li>
-                    <li><a href="#">Career</a></li>
-                </ul>
-            </nav>
+            <div class="headerInner">
+                <!-- h1.logo>a>img -->
+                <h1 class="logo">
+                    <a href="#"><img src="./images/logo-gnb.svg" alt="logo"></a></h1>
+                <!-- nav.menu -->
+                <nav class="menu">
+                    <!-- ul>li*5>a -->
+                    <ul>
+                        <li><a href="#">Mobile</a></li>
+                        <li><a href="#">TV</a></li>
+                        <li><a href="#">PC</a></li>
+                        <li><a href="#">Tablet</a></li>
+                        <li><a href="#">Career</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
         <main>
             <!-- .slide+content -->
             <div class="slide">
                 <!-- .slideList>.slideImg*3>a>img -->
                 <div class="slideList">
-                    <div class="slideImg"><a href="#"><img src="./images/slide/slide1.jpg" alt="slide-01"></a></div>
-                    <div class="slideImg"><a href="#"><img src="./images/slide/slide2.jpg" alt="slide-01"></a></div>
-                    <div class="slideImg"><a href="#"><img src="./images/slide/slide3.jpg" alt="slide-01"></a></div>
+                    <div class="slideImg"><a href="#"><img src="./images/1920px/slide-01.jpg" alt="slide-01"></a></div>
+                    <div class="slideImg"><a href="#"><img src="./images/1920px/slide-02.jpg" alt="slide-02"></a></div>
+                    <div class="slideImg"><a href="#"><img src="./images/1920px/slide-03.jpg" alt="slide-03"></a></div>
+                    <div class="slideImg"><a href="#"><img src="./images/1920px/slide-04.jpg" alt="slide-04"></a></div>
+                    <div class="slideImg"><a href="#"><img src="./images/1920px/slide-05.jpg" alt="slide-05"></a></div>
+                    <div class="slideImg"><a href="#"><img src="./images/1920px/slide-06.jpg" alt="slide-06"></a></div>
+
 
 
                 </div>
@@ -119,43 +140,55 @@
                     <h2>공지사항</h2>
                     <a href="#">더보기</a>
                     <ul>
-                        <li><a href="#">대한민국 첫번째 월드엑스포 2030부산세계박람회 유치를 위해 삼성이 함께 뛰겠습니다</a><span>23-11-17</span></li>
-                        <li><a href="#">삼성스토어 부천중동 Grand Open</a><span>23-11-17</span></li>
-                        <li><a href="#">에너지 계산기 체험하기</a><span>23-11-17</span></li>
-                        <li><a href="#">갤럭시 z 플립5 메종 마르지엘라 에디션</a><span>23-11-17</span></li>
-                        <li><a href="#">#호기심 가득한, 특이한 G·NUSMAS를</a><span>23-11-17</span></li>
+                        <li><a href="#" class="layerPopup">대한민국 첫번째 월드엑스포 2030부산세계박람회 유치를 위해 삼성이 함께
+                                뛰겠습니다</a><span>23-11-17</span></li>
+                        <li><a href="#" class="layerPopup">삼성스토어 부천중동 Grand Open</a><span>23-11-17</span></li>
+                        <li><a href="#" class="layerPopup">에너지 계산기 체험하기</a><span>23-11-17</span></li>
+                        <li><a href="#" class="layerPopup">갤럭시 z 플립5 메종 마르지엘라 에디션</a><span>23-11-17</span></li>
+                        <li><a href="#" class="layerPopup">#호기심 가득한, 특이한 G·NUSMAS를</a><span>23-11-17</span></li>
                     </ul>
                 </div>
                 <div class="banner1">
-                    <a href="#"><img src="./images/banner1.jpg" alt="배너1"></a>
+                    <a href="#" class="layerPopup"><img src="./images/banner1.jpg" alt="배너1"></a>
                 </div>
                 <div class="banner2">
-                    <a href="#"><img src="./images/banner2.jpg" alt="배너2"></a>
+                    <a href="#" class="layerPopup"><img src="./images/banner2.jpg" alt="배너2"></a>
                 </div>
             </div>
         </main>
+
         <footer>
-            <!-- .bottomLogo+.copyright+.sns -->
-            <div class="bottomLogo">
-                <a href="#"><img src="./images/logo-gnb.svg" alt="하단로고"></a>
-            </div>
-            <div class="copyright">
-                <p>
-                    Copyright &copy; 1995-2023
-                    <a href="mailto:samgsung@samsung.com">Samsung.</a>
-                    All Rights Reserved.
-                </p>
-            </div>
-            <div class="sns">
-                <!-- ul>li*4>a>img -->
-                <ul>
-                    <li><a href="#"><img src="./images/sns/f.png" alt="페이스북"></a></li>
-                    <li><a href="#"><img src="./images/sns/y.png" alt="유튜브"></a></li>
-                    <li><a href="#"><img src="./images/sns/b.png" alt="밴드"></a></li>
-                    <li><a href="#"><img src="./images/sns/i.png" alt="인스타그램"></a></li>
-                </ul>
+            <div class="footerInner">
+                <!-- .bottomLogo+.copyright+.sns -->
+                <div class="bottomLogo">
+                    <a href="#"><img src="./images/logo-gnb.svg" alt="하단로고"></a>
+                </div>
+                <div class="copyright">
+                    <p>
+                        Copyright &copy; 1995-2023
+                        <a href="mailto:samgsung@samsung.com">Samsung.</a>
+                        All Rights Reserved.
+                    </p>
+                </div>
+                <div class="sns">
+                    <!-- ul>li*4>a>img -->
+                    <ul>
+                        <li><a href="#"><img src="./images/sns/f.png" alt="페이스북"></a></li>
+                        <li><a href="#"><img src="./images/sns/y.png" alt="유튜브"></a></li>
+                        <li><a href="#"><img src="./images/sns/b.png" alt="밴드"></a></li>
+                        <li><a href="#"><img src="./images/sns/i.png" alt="인스타그램"></a></li>
+                    </ul>
+                </div>
             </div>
         </footer>
+        <!-- 레이어팝업 -->
+        <div class="popup">
+            <a href="#" class="close">
+                <i class="xi-close"></i>
+            </a>
+        </div>
+        <!-- bg -->
+        <div class="bg"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
