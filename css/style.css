@@ -3,7 +3,7 @@
  * { margin: 0; padding: 0; } 
 
  
- body{background: url(../images/bg.svg);}
+ body {background: linear-gradient(180deg, #5C86F1 0%, #D2CBFF 100%);}
  ul,
  li { margin: 0; padding: 0; list-style-type: none; } 
 
